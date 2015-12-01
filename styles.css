@@ -1,0 +1,17 @@
+@CHARSET"ISO-8859-1";
+.grid {
+	-fx-background-color: red;
+}
+.label {
+    -fx-text-fill: #000000;
+}
+.button {
+    -fx-background-color: #AB4642;
+    -fx-text-fill: #FFFFFF;
+    -fx-background-radius: 4;
+}
+.button-blue {
+    -fx-background-color: #a1b56c;
+    -fx-text-fill: #FFFFFF;
+    -fx-background-radius: 4;
+}
