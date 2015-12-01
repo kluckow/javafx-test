@@ -12,20 +12,32 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 
+/**
+ * The Class LoginWindow.
+ */
 public class LoginWindow extends BasicWindow {
 
+	/** The Constant TITLE. */
 	private static final String TITLE = "Login";
 	
+	/** The Constant LABEL_USERNAME. */
 	private static final String LABEL_USERNAME = "Username";
 	
+	/** The Constant LABEL_PASSWORD. */
 	private static final String LABEL_PASSWORD = "Password";
 	
+	/** The Constant BUTTON_LABEL_LOGIN. */
 	private static final String BUTTON_LABEL_LOGIN = "Login";
 	
+	/** The Constant WIDTH_LOGIN_WINDOW. */
 	private static final int WIDTH_LOGIN_WINDOW = 400;
 	
+	/** The Constant HEIGHT_LOGIN_WINDOW. */
 	private static final int HEIGHT_LOGIN_WINDOW = 300;
 	
+	/**
+	 * Instantiates a new login window.
+	 */
 	public LoginWindow() {
 		super(TITLE, WIDTH_LOGIN_WINDOW, HEIGHT_LOGIN_WINDOW);
 		setupScene();
@@ -33,10 +45,16 @@ public class LoginWindow extends BasicWindow {
 		window.show();
 	}
 	
+	/* (non-Javadoc)
+	 * @see application.components.pageobjects.windows.BasicWindow#setupConfig()
+	 */
 	public void setupConfig() {
 		window.setResizable(false);
 	}
 
+	/* (non-Javadoc)
+	 * @see application.components.pageobjects.windows.BasicWindow#setupScene()
+	 */
 	public void setupScene() {
 		
 		

@@ -13,22 +13,41 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+// TODO: extract useful stuff and delete this class
+
+/**
+ * The Class ComponentGenerator.
+ */
 public class ComponentGenerator {
 
+	/** The Constant TITLE_MAIN_WINDOW. */
 	private static final String TITLE_MAIN_WINDOW = "Main Window";
 	
+	/** The Constant TITLE_EXIT_WINDOW. */
 	private static final String TITLE_EXIT_WINDOW = "Exit  Window";
 	
+	/** The Constant LABEL_EXIT_WINDOW. */
 	private static final String LABEL_EXIT_WINDOW = "Really want to close the program?";
 	
+	/** The Constant LABEL_USERNAME. */
 	private static final String LABEL_USERNAME = "Username";
 	
+	/** The Constant LABEL_PASSWORD. */
 	private static final String LABEL_PASSWORD = "Password";
 	
+	/** The Constant BUTTON_LABEL_LOGIN. */
 	private static final String BUTTON_LABEL_LOGIN = "Login";
 	
+	/** The Constant CSS_STYLE_APPLICATION_BACKGROUND. */
 	private static final String CSS_STYLE_APPLICATION_BACKGROUND = "-fx-background-color: cadetblue; -fx-border-color: red";
 	
+	/**
+	 * Creates the main stage.
+	 *
+	 * @param width the width
+	 * @param height the height
+	 * @return the stage
+	 */
 	public Stage createMainStage(int width, int height) {
 		
 		Stage window = createWindow(800, 600, TITLE_MAIN_WINDOW);
@@ -68,6 +87,14 @@ public class ComponentGenerator {
 		return window;
 	}
 	
+	/**
+	 * Creates the window.
+	 *
+	 * @param width the width
+	 * @param height the height
+	 * @param title the title
+	 * @return the stage
+	 */
 	public Stage createWindow(int width, int height, String title) {
 		
 		Stage window = new Stage();
@@ -78,6 +105,12 @@ public class ComponentGenerator {
 		return window;
 	}
 
+	/**
+	 * Creates the close dialog.
+	 *
+	 * @param window the window
+	 * @return the stage
+	 */
 	private Stage createCloseDialog(Stage window) {
 		
 		Stage closeWindow = createWindow(400, 200, TITLE_EXIT_WINDOW);
@@ -105,6 +138,13 @@ public class ComponentGenerator {
 		return closeWindow;
 	}
 	
+	/**
+	 * Close window.
+	 *
+	 * @param window the window
+	 * @param closeWindow the close window
+	 * @param answer the answer
+	 */
 	private void closeWindow(Stage window, Stage closeWindow, boolean answer) {
 		
 		if (answer) {

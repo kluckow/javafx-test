@@ -12,18 +12,31 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ * The Class CloseDialogWindow.
+ */
 public class CloseDialogWindow extends ConfirmDialogWindow {
 
+	/** The Constant TITLE_EXIT_WINDOW. */
 	private static final String TITLE_EXIT_WINDOW = "Close Program";
 	
+	/** The Constant LABEL_WANT_TO_CLOSE. */
 	private static final String LABEL_WANT_TO_CLOSE = "Really want to close the program?";
 	
+	/** The Constant YES_BUTTON_TEXT. */
 	private static final String YES_BUTTON_TEXT = "Yes";
 	
+	/** The Constant NO_BUTTON_TEXT. */
 	private static final String NO_BUTTON_TEXT = "No";
 	
+	/** The caller. */
 	private Stage caller;
 	
+	/**
+	 * Instantiates a new close dialog window.
+	 *
+	 * @param caller the caller
+	 */
 	public CloseDialogWindow(Stage caller) {
 		super(TITLE_EXIT_WINDOW, LABEL_WANT_TO_CLOSE);
 		this.setCaller(caller);
@@ -31,6 +44,9 @@ public class CloseDialogWindow extends ConfirmDialogWindow {
 		setupConfig();
 	}
 
+	/* (non-Javadoc)
+	 * @see application.components.pageobjects.windows.BasicWindow#setupConfig()
+	 */
 	@Override
 	public void setupConfig() {
 		window.initModality(Modality.APPLICATION_MODAL);
@@ -38,6 +54,9 @@ public class CloseDialogWindow extends ConfirmDialogWindow {
 		window.showAndWait();
 	}
 	
+	/* (non-Javadoc)
+	 * @see application.components.pageobjects.windows.BasicWindow#setupScene()
+	 */
 	@Override
 	public void setupScene() {
 		
@@ -81,6 +100,11 @@ public class CloseDialogWindow extends ConfirmDialogWindow {
 		window.setScene(scene);
 	}
 
+	/**
+	 * Close.
+	 *
+	 * @param answer the answer
+	 */
 	private void close(boolean answer) {
 		
 		if (answer) {
@@ -93,10 +117,20 @@ public class CloseDialogWindow extends ConfirmDialogWindow {
 		}
 	}
 
+	/**
+	 * Gets the caller.
+	 *
+	 * @return the caller
+	 */
 	public Stage getCaller() {
 		return caller;
 	}
 
+	/**
+	 * Sets the caller.
+	 *
+	 * @param caller the new caller
+	 */
 	public void setCaller(Stage caller) {
 		this.caller = caller;
 	}

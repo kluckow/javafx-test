@@ -11,16 +11,29 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 
+/**
+ * The Class NotificationWindow.
+ */
 public class NotificationWindow extends ConfirmDialogWindow {
 	
+	/** The Constant OK_BUTTON_TEXT. */
 	private static final String OK_BUTTON_TEXT = "Ok";
 
+	/**
+	 * Instantiates a new notification window.
+	 *
+	 * @param title the title
+	 * @param label the label
+	 */
 	public NotificationWindow(String title, String label) {
 		super(title, label);
 		setupScene();
 		setupConfig();
 	}
 
+	/* (non-Javadoc)
+	 * @see application.components.pageobjects.windows.BasicWindow#setupConfig()
+	 */
 	@Override
 	public void setupConfig() {
 		window.initModality(Modality.APPLICATION_MODAL);
@@ -28,6 +41,9 @@ public class NotificationWindow extends ConfirmDialogWindow {
 		window.showAndWait();
 	}
 	
+	/* (non-Javadoc)
+	 * @see application.components.pageobjects.windows.BasicWindow#setupScene()
+	 */
 	@Override
 	public void setupScene() {
 		

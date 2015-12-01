@@ -17,30 +17,54 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
+/**
+ * The Class MainWindow.
+ */
 public class MainWindow extends BasicWindow {
 
+	/** The Constant TITLE. */
 	private static final String TITLE = "Main";
 	
+	/** The Constant WIDTH_MAIN_WINDOW. */
 	private static final int WIDTH_MAIN_WINDOW = 1024;
 	
+	/** The Constant HEIGHT_MAIN_WINDOW. */
 	private static final int HEIGHT_MAIN_WINDOW = 768;
 	
+	/** The scene. */
 	private Scene scene;
 	
+	/** The main v layout. */
 	private VBox mainVLayout;
 	
+	/** The menubar h layout. */
 	private HBox menubarHLayout;
+	
+	/** The menubar. */
 	private MenuBar menubar;
+	
+	/** The file menu. */
 	private Menu fileMenu;
+	
+	/** The edit menu. */
 	private Menu editMenu;
 	
+	/** The toolbar h layout. */
 	private HBox toolbarHLayout;
+	
+	/** The toolbar. */
 	private ToolBar toolbar;
 	
+	/** The content layout. */
 	private StackPane contentLayout;
+	
+	/** The content grid layout. */
 	private GridPane contentGridLayout;
 	
 	
+	/**
+	 * Instantiates a new main window.
+	 */
 	public MainWindow() {
 		super(TITLE, WIDTH_MAIN_WINDOW, HEIGHT_MAIN_WINDOW);
 		setupScene();
@@ -48,6 +72,9 @@ public class MainWindow extends BasicWindow {
 		window.show();
 	}
 	
+	/* (non-Javadoc)
+	 * @see application.components.pageobjects.windows.BasicWindow#setupScene()
+	 */
 	@Override
 	public void setupScene() {
 		setupMainLayout();
@@ -58,6 +85,9 @@ public class MainWindow extends BasicWindow {
 		window.setScene(this.scene);
 	}
 	
+	/* (non-Javadoc)
+	 * @see application.components.pageobjects.windows.BasicWindow#setupConfig()
+	 */
 	@Override
 	public void setupConfig() {
 		window.setResizable(true);
@@ -67,12 +97,18 @@ public class MainWindow extends BasicWindow {
 		});		
 	}
 
+	/**
+	 * Setup main layout.
+	 */
 	private void setupMainLayout() {
 		this.mainVLayout = new VBox();
 		this.mainVLayout.prefWidthProperty().bind(window.widthProperty());		
 		this.mainVLayout.setStyle(Theme.CSS_STYLE_APPLICATION_BACKGROUND);
 	}
 	
+	/**
+	 * Setup menubar.
+	 */
 	private void setupMenubar() {
 		this.menubarHLayout = new HBox();
 		this.menubarHLayout.prefWidthProperty().bind(this.mainVLayout.widthProperty());
@@ -103,6 +139,9 @@ public class MainWindow extends BasicWindow {
 		this.menubarHLayout.getChildren().add(this.menubar);
 	}
 
+	/**
+	 * Setup toolbar.
+	 */
 	private void setupToolbar() {
 		this.toolbarHLayout = new HBox();
 		this.toolbarHLayout.prefWidthProperty().bind(this.mainVLayout.widthProperty());
@@ -116,6 +155,9 @@ public class MainWindow extends BasicWindow {
 		this.toolbarHLayout.getChildren().add(toolbar);
 	}
 
+	/**
+	 * Setup content.
+	 */
 	private void setupContent() {
 		this.contentLayout = new StackPane();
 		this.contentLayout.setStyle(Theme.CSS_STYLE_APPLICATION_BACKGROUND);
@@ -134,6 +176,9 @@ public class MainWindow extends BasicWindow {
 		this.contentLayout.getChildren().add(contentGridLayout);
 	}
 	
+	/**
+	 * Finalize scene.
+	 */
 	private void finalizeScene() {
 		this.mainVLayout.getChildren().addAll(this.menubarHLayout, this.toolbarHLayout, this.contentLayout);
 		this.scene = new Scene(this.mainVLayout);

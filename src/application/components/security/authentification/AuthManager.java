@@ -6,15 +6,32 @@ import java.util.Random;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.digest.DigestUtils;
 
+/**
+ * The Class AuthManager.
+ */
 public class AuthManager {
 
+	/** The sha. */
 	private String sha;
+	
+	/** The salt. */
 	private String salt;
+	
+	/** The hash info. */
 	private String hashInfo;
+	
+	/** The existing user. */
 	String existingUser;
 	
+	/** The Constant SALT_LENGTH. */
 	private static final int SALT_LENGTH = 32;
 	
+	/**
+	 * Creates the user.
+	 *
+	 * @param username the username
+	 * @param password the password
+	 */
 	public void createUser(String username, String password) {
 		
 		existingUser = username;
@@ -27,6 +44,13 @@ public class AuthManager {
 		login(username, password);
 	}
 	
+	/**
+	 * Login.
+	 *
+	 * @param username the username
+	 * @param password the password
+	 * @return true, if successful
+	 */
 	public boolean login(String username, String password) {
 		
 		if (userExists(username)) {
@@ -56,7 +80,14 @@ public class AuthManager {
 //		return result.toString();
 //	}
 
-	private boolean validatePassword(String username, String password) {
+	/**
+ * Validate password.
+ *
+ * @param username the username
+ * @param password the password
+ * @return true, if successful
+ */
+private boolean validatePassword(String username, String password) {
 		
 		String hashInfo = getHashInfo(username);
 		String[] hashInfoSplitted = hashInfo.split(":");
@@ -79,6 +110,12 @@ public class AuthManager {
 		return false;
 	}
 
+	/**
+	 * Gets the hash info.
+	 *
+	 * @param username the username
+	 * @return the hash info
+	 */
 	private String getHashInfo(String username) {
 		
 		// TODO: SELECT hash_info FROM user WHERE username = username;
@@ -86,6 +123,12 @@ public class AuthManager {
 		return hashInfo;
 	}
 
+	/**
+	 * User exists.
+	 *
+	 * @param username the username
+	 * @return true, if successful
+	 */
 	private boolean userExists(String username) {
 		
 		// TODO: SELECT * FROM user WHERE username = username;
@@ -93,6 +136,11 @@ public class AuthManager {
 		return true;
 	}
 
+	/**
+	 * Generate salt.
+	 *
+	 * @return the string
+	 */
 	private String generateSalt() {
 		
 		final Random r = new SecureRandom();

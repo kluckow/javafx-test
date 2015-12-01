@@ -18,18 +18,29 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+/**
+ * The Class MainWindowOld.
+ */
 public class MainWindowOld extends BasicWindow {
 
+	/** The Constant TITLE. */
 	private static final String TITLE = "Main";
 	
+	/** The Constant WIDTH_MAIN_WINDOW. */
 	private static final int WIDTH_MAIN_WINDOW = 800;
 	
+	/** The Constant HEIGHT_MAIN_WINDOW. */
 	private static final int HEIGHT_MAIN_WINDOW = 600;
 	
+	/** The scene. */
 	private Scene scene;
 	
+	/** The menubar. */
 	private MenuBar menubar;
 	
+	/**
+	 * Instantiates a new main window old.
+	 */
 	public MainWindowOld() {
 		super(TITLE, WIDTH_MAIN_WINDOW, HEIGHT_MAIN_WINDOW);
 		setupScene();
@@ -37,6 +48,9 @@ public class MainWindowOld extends BasicWindow {
 		window.show();
 	}
 
+	/* (non-Javadoc)
+	 * @see application.components.pageobjects.windows.BasicWindow#setupConfig()
+	 */
 	@Override
 	public void setupConfig() {
 		window.setResizable(true);
@@ -46,12 +60,20 @@ public class MainWindowOld extends BasicWindow {
 		});		
 	}
 	
+	/* (non-Javadoc)
+	 * @see application.components.pageobjects.windows.BasicWindow#setupScene()
+	 */
 	@Override
 	public void setupScene() {
 		this.scene = getMainScene();
 		window.setScene(this.scene);
 	}
 	
+	/**
+	 * Gets the main scene.
+	 *
+	 * @return the main scene
+	 */
 	private Scene getMainScene() {
 		
 		// main layout, containing everything
@@ -130,6 +152,12 @@ public class MainWindowOld extends BasicWindow {
 		
 		return new Scene(mainLayout);
 	}
+	
+	/**
+	 * Gets the second scene.
+	 *
+	 * @return the second scene
+	 */
 	private Scene getSecondScene() {
 		
 		// TODO: maybe put those VBox, that contains both HBoxes into the main app window setup
@@ -172,10 +200,20 @@ public class MainWindowOld extends BasicWindow {
 		return new Scene(verticalLayout);
 	}
 
+	/**
+	 * Gets the menubar.
+	 *
+	 * @return the menubar
+	 */
 	public MenuBar getMenubar() {
 		return menubar;
 	}
 
+	/**
+	 * Sets the menubar.
+	 *
+	 * @param menubar the new menubar
+	 */
 	public void setMenubar(MenuBar menubar) {
 		this.menubar = menubar;
 	}
