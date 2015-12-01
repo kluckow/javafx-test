@@ -1,10 +1,9 @@
 package application.components.pageobjects.windows;
 
-import application.components.pageobjects.windows.configuration.WindowConfiguration;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public abstract class BasicWindow implements WindowConfiguration {
+public abstract class BasicWindow {
 
 	protected Stage window;
 	
@@ -16,6 +15,10 @@ public abstract class BasicWindow implements WindowConfiguration {
 		window.setWidth(width);
 		window.setHeight(height);
 	}
+	
+	public abstract void setupConfig();
+	
+	public abstract void setupScene();
 	
 	public void terminate() {
 		window.close();
