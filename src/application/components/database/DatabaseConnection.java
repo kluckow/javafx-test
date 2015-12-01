@@ -1,7 +1,6 @@
 package application.components.database;
 
 import java.sql.*;
-// TODO: Auto-generated Javadoc
 
 /**
  * The Class DatabaseConnection.

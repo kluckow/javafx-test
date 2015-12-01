@@ -1,6 +1,5 @@
 package application.components.database.model;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class User.
  */

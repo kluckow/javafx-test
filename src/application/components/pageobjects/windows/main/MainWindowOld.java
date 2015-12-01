@@ -143,7 +143,6 @@ public class MainWindowOld extends BasicWindow {
 		grid.setPadding(new Insets(10, 10, 10, 10));
 		grid.setStyle(Theme.CSS_STYLE_APPLICATION_BACKGROUND);
 		
-		// TODO: create some form
 		Label label = new Label("Now we are on the main scene!");
 		grid.add(label, 0, 0);
 		
@@ -160,8 +159,6 @@ public class MainWindowOld extends BasicWindow {
 	 */
 	private Scene getSecondScene() {
 		
-		// TODO: maybe put those VBox, that contains both HBoxes into the main app window setup
-		// in order to reduce lines of code for setting up another scene
 		VBox verticalLayout = new VBox();
 		verticalLayout.prefWidthProperty().bind(window.widthProperty());
 		
@@ -189,7 +186,6 @@ public class MainWindowOld extends BasicWindow {
 		grid.setPadding(new Insets(10, 10, 10, 10));
 		grid.setStyle(Theme.CSS_STYLE_CONTENT_BACKGROUND);
 		
-		// TODO: create some form
 		Label label = new Label("Now we are on the second scene!");
 		grid.add(label, 0, 0);
 		
