@@ -4,6 +4,7 @@ import application.components.pageobjects.windows.BasicWindow;
 import application.components.pageobjects.windows.general.CloseDialogWindow;
 import application.components.pageobjects.windows.general.NotificationWindow;
 import application.components.theme.Theme;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -11,6 +12,7 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ToolBar;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -149,9 +151,11 @@ public class MainWindow extends BasicWindow {
 		this.toolbar.prefWidthProperty().bind(this.toolbarHLayout.widthProperty());
 		Button btn1 = new Button("Call a notification window");
 		btn1.setOnAction(e -> new NotificationWindow("Notification title", "You clicked a button that calls a notification window!"));
-		Button btn2 = new Button("TODO: Switch between scenes");
-//		btn2.setOnAction(e -> updateScene(getMainScene()) );
-		this.toolbar.getItems().addAll(btn1, btn2);
+		Button btn2 = new Button("Call a close dialog window");
+		btn2.setOnAction(e -> new CloseDialogWindow(window) );
+		Button btn3 = new Button("Change Background");
+		btn3.setOnAction(e -> this.contentLayout.setStyle(Theme.CSS_STYLE_NOTIFICATION_BACKGROUND));
+		this.toolbar.getItems().addAll(btn1, btn2, btn3);
 		this.toolbarHLayout.getChildren().add(toolbar);
 	}
 
@@ -164,16 +168,31 @@ public class MainWindow extends BasicWindow {
 		this.contentLayout.prefHeightProperty().bind(this.mainVLayout.heightProperty());
 		this.contentLayout.setPadding(Theme.CSS_CONTENT_INSETS);
 		
-		this.contentGridLayout = new GridPane();
-		this.contentGridLayout.prefWidthProperty().bind(this.contentLayout.widthProperty());
-		this.contentGridLayout.prefHeightProperty().bind(this.contentLayout.heightProperty());
-		this.contentGridLayout.setPadding(Theme.CSS_CONTENT_INSETS);
-		this.contentGridLayout.setStyle(Theme.CSS_STYLE_CONTENT_BACKGROUND);
+//		this.contentGridLayout = new GridPane();
+//		this.contentGridLayout.prefWidthProperty().bind(this.contentLayout.widthProperty());
+//		this.contentGridLayout.prefHeightProperty().bind(this.contentLayout.heightProperty());
+//		this.contentGridLayout.setPadding(Theme.CSS_CONTENT_INSETS);
+//		this.contentGridLayout.setStyle(Theme.CSS_STYLE_CONTENT_BACKGROUND);
 		
 		// TODO: create some form
-		Label label = new Label("Now we are on the main scene!");
-		this.contentGridLayout.add(label, 0, 0);
-		this.contentLayout.getChildren().add(contentGridLayout);
+		
+		HBox usernameLayout = new HBox();
+		usernameLayout.setAlignment(Pos.CENTER_LEFT);
+		
+		Label usernameLabel = new Label("Username:");
+		usernameLabel.setPrefWidth(80);
+		usernameLayout.getChildren().add(usernameLabel);
+		
+		TextField usernameInput = new TextField();
+		usernameInput.setPrefWidth(150);
+		usernameLayout.getChildren().add(usernameInput);
+		
+		VBox formLayout = new VBox();
+		formLayout.setPadding(Theme.CSS_CONTENT_INSETS);
+		formLayout.setStyle(Theme.CSS_STYLE_CONTENT_BACKGROUND);
+		formLayout.getChildren().add(usernameLayout);
+		
+		this.contentLayout.getChildren().add(formLayout);
 	}
 	
 	/**
